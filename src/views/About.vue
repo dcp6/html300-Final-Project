@@ -1,5 +1,22 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="tripreports">
+    <HeaderAndNav msg="Welcome!"/>
+    <Footer msg="End"/>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+
+import HeaderAndNav from '@/components/HeaderAndNav.vue'
+import Footer from '@/components/Footer.vue'
+export default {
+  name: 'TripReports',
+  components: {
+    HeaderAndNav,
+    Footer
+  }
+  }
+
+
+</script>
