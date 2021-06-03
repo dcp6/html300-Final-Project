@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <HeaderAndNav msg="Welcome!"/>
-  <div id="contentGeneratorHome">
     <div class="primary-wrapper">
 
 <div class="primary-wrapper__main-header-welcome-container">
@@ -11,9 +10,8 @@
      <img class="primary-wrapper__main-header-img-holder__img" alt="A mayan temple" src="../assets/xunatunuch.jpg">
      <img class="primary-wrapper__main-header-img-holder__img" alt="A gothic tower" src="../assets/gothic-tower.jpg">
      <img class="primary-wrapper__main-header-img-holder__img" alt="A coastal city in Italy" src="../assets/positano.jpg">
-     
 
-   </div>
+
 </div>
 
  

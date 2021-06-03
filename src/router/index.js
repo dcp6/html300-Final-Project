@@ -15,14 +15,31 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
-    },
-    path: '/TripReports',
+    }
+  },
+  {
+    path: '/Tripreports',
     name:'Trip Reports',
     component: function () {
       return import(/*webpackChunkName: "tripreports" */ '../views/TripReports.vue')
     }
-    
+  },
+  {
+    path: '/GearReviews',
+    name:'Gear Reviews',
+    component: function() {
+      return import('../views/GearReviews.vue')
+    }
+  
+  },
+  {
+    path: '/TripPlanner',
+    name:'Trip Planner',
+    component: function() {
+      return import('../views/TripPlanner.vue')
+    }
   }
+  
 ]
 
 const router = createRouter({

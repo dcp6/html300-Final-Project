@@ -12,7 +12,7 @@ $primary-background-color:white;
 $menu-item-color: white;
 $hamburger-menu-color: black;
 $hamburger-menu-color-change:black;
-$hamburger-menu-link-color:#49cfae;;
+$hamburger-menu-link-color:green;;
 $menu-background-color:black;
 $toggle-top-location:1rem;
 $toggle-left-location:0.5rem;
@@ -41,7 +41,7 @@ body {
     display:grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap:1rem;
-    grid-template-rows: repeat(auto, 2rem);
+    grid-template-rows: repeat(auto, 4rem);
     &__main-header-img-holder {
         display:flex;
         flex-direction:row;
@@ -231,6 +231,13 @@ body {
     .primary-header__main-headline {
       font-size:1rem;
     }
+.nav-bar {
+  &__main-holder {
+    &__menu-item-holder {
+      margin:($toggle-top-location) 0 0 -.5rem;
+    }
+  }
+}
      .primary-wrapper {
             &__main-header-welcome-container {
                 grid-column:1/13;

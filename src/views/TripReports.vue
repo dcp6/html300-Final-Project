@@ -100,11 +100,32 @@ export default {
 
 </script>
 <style scoped lang="scss">
+$max-width-ipad: 48rem;
+$max-width-phone:29.75rem; 
 .primary-wrapper {
-    display:grid;
-    grid-template-columns:(repeat(12,1fr));
-    grid-template-rows:(repeat(auto, 4rem));
- &__aside {
+  &__main {
+        grid-column:4/11;
+        padding-right:1fr;
+        background-color:white;
+        display:flex;
+        align-items:center;
+        &__report-holder {
+            &__headline {
+                display:flex;
+                justify-content:center;
+                color:black;
+                        }
+            &__img-holder {
+                display:flex;
+               align-items:center;
+            &__hiking-img {
+                 width:100%;
+        }
+        }
+                         }
+        
+  }
+     &__aside {
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -128,31 +149,55 @@ export default {
 #aside-img {
     height:13rem;
 
+} 
 }
-  &__main {
-        grid-column:4/11;
-        padding-right:1fr;
-        background-color:white;
-        display:flex;
-        align-items:center;
-        &__report-holder {
-            &__headline {
-                display:flex;
-                justify-content:center;
-                color:black;
+@media (max-width:$max-width-ipad){
+   .primary-wrapper {
+            &__main {
+                grid-column:2/12;
+                &__report-holder {
+                    &__img-holder {
+                        &__hiking-img {
+                            width:38rem;
                         }
-            &__img-holder {
-                display:flex;
-               align-items:center;
-            &__hiking-img {
-                 width:100%;
+                    }
+                }
+            }
+            &__aside {
+                display:none;
+            }
         }
-        }
-                         }
-        
-  }
-  
 }
-
-
+@media (max-width:$max-width-phone){
+.primary-wrapper {
+            &__main { 
+                grid-column:2/11; 
+                &__report-holder {
+                    &__headline {
+                        color:black;
+                    }
+                    &__date-line {
+                        color:black;
+                        padding-left:0rem;
+                        
+                    }
+                    &__img-holder {
+                    &__hiking-img {
+                        width:20rem;
+                        padding-left:0rem;
+                    }
+                    }
+                    &__report-text {
+                        color:black;
+                        padding-left:0rem;
+                    }
+                        
+                    }
+            }
+            &__aside {
+                display:none;
+            }
+        
+        }
+}
 </style>
