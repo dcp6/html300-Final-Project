@@ -21,9 +21,10 @@
 
 </div>
 <div class="primary-wrapper__main__card-data-holder">
-<p>{{temp2}}</p>
-<p>{{weather2}}</p>
-<p>{{temp2*(9/5)+32}}</p>
+<p>{{temp3}}</p>
+<p>{{weather3}}</p>
+<p>{{temp3*(9/5)+32}}</p>
+
 </div>
 </main>
 
@@ -96,10 +97,9 @@ export default {
         this.temp2 = json.data[0].temp
         this.weather2 = json.data[0].weather.description
       })
-    }
     },
-     getData3(){
-      fetch('https://api.weatherbit.io/v2.0/current?&city=Bellingham,WA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
+      getData3(){
+      fetch('https://api.weatherbit.io/v2.0/current?&city=Philadelphia,PA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
       .then(response => {
         console.log(response)
         return response.json()
@@ -109,12 +109,15 @@ export default {
         this.temp3 = json.data[0].temp
         this.weather3 = json.data[0].weather.description
       })
+    }
+
     },
 
-    
     mounted: function() {
       this.getData()
       this.getData2()
+      this.getData3()
+
 
     }
     }
