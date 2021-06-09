@@ -99,7 +99,7 @@ export default {
       })
     },
       getData3(){
-      fetch('https://api.weatherbit.io/v2.0/current?&city=Philadelphia,PA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
+      fetch('https://api.weatherbit.io/v2.0/current?&lat=48.769&lon=-122.485&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
       .then(response => {
         console.log(response)
         return response.json()
