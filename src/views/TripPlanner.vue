@@ -127,7 +127,9 @@ export default {
         this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIcon1ValueLoadValue = true
       })
-    
+      .catch((reason) => {
+        alert('Error loading data for Seattle,WA! Please check your internet connection and relaod the page')
+    })
     },
      getData2(){
       fetch('https://api.weatherbit.io/v2.0/current?&city=Issaquah,WA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
@@ -143,6 +145,9 @@ export default {
         this.weatherIcon2ValueLoadValue = true
        
       })
+      .catch((reason) => {
+        alert('Error loading data for Issaquah, WA! Please check your internet connection and relaod the page')
+    })
     },
       getData3(){
       fetch('https://api.weatherbit.io/v2.0/current?&lat=48.769&lon=-122.485&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
@@ -150,6 +155,7 @@ export default {
         console.log(response)
         return response.json()
       })
+      
       .then((json) => {
         console.log(json)
         this.temp3 = json.data[0].temp
@@ -157,6 +163,9 @@ export default {
         this.weatherIcon3 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIcon3ValueLoadValue = true
       })
+      .catch((reason) => {
+        alert('Erro loading data for Bellingham,WA! Please check your internet connection and relaod the page')
+    })
       },
        getData4(){
       fetch('https://api.weatherbit.io/v2.0/current?&lat=46.78&lon=-121.73&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
@@ -171,6 +180,9 @@ export default {
         this.weatherIcon4 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIcon4ValueLoadValue = true
       })
+      .catch((reason) => {
+        alert('Error loading data for Paradise, WA! Please check your internet connection and relaod the page')
+    })
       },
 
     },
