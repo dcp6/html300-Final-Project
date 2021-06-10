@@ -169,6 +169,15 @@ $max-width-phone:29.75rem;
    .primary-wrapper {
             &__main {
                 grid-column:2/12;
+                &__review-holder {
+
+                
+                &__img-holder {
+                    &__img {
+                        height:16rem;
+                    }
+                }
+            }
             }
             &__aside {
                 display:none;
