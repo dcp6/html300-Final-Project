@@ -89,8 +89,12 @@ export default {
   },     
             methods: {
               plusOne() {
-                    this.gearSelector += 1
+                    this.gearSelector += 1;
 
+                    if (this.gearSelector === 8 )
+                    console.log('test')
+                    this.gearSelector = gearSelector - 8
+                    console.log(gearSelector)
               }//random number generator
 
 
