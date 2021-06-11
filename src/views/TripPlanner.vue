@@ -9,14 +9,8 @@
 </div> <!--End main header welcome container-->
 
 <main class="primary-wrapper__main">
-<div class="primary-wrapper__main__card-data-holder">
-<h3 class="primary-wrapper__main__card-data-holder__location-line">{{location1}} </h3>
-<p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp1*(9/5)+32)).toFixed(1)}} &#8457;. </p>
-<p class="primary-wrapper__main__card-data-holder__weather-line">{{weather1}}</p>
-<template v-if="weatherIcon1ValueLoadValue">
-<img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon1" v-bind:alt="weather1">
 
-</template>
+<div class="primary-wrapper__main__card-data-holder">
 </div>
 <div class="primary-wrapper__main__card-data-holder">
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{location2}} </h3>
@@ -49,8 +43,12 @@
 </div>
 </main>
 
-
-
+<WeatherTile
+v-for = 
+"(data, x) in weatherDataHolder"
+v-bind:key="data[0].weatherData"
+/>
+<!--<WeatherTile weatherDataIndex="2"/>-->
 
 </div><!--primary wrapper-->
 
@@ -74,77 +72,78 @@
 // @ is an alias to /src 
 import HeaderAndNav from '@/components/HeaderAndNav.vue'
 import Footer from '@/components/Footer.vue'
+import WeatherTile from '@/components/WeatherTile.vue'
 export default {
   name: 'Home',
   components: {
     HeaderAndNav,
-    Footer
+    Footer,
+    WeatherTile
   },
   data () {
       return { 
           primaryHeader: "See the information below to plan your trip!",
-          location1: "Seattle,WA",
-          temp1: undefined,
-          weather1: undefined,
-          weatherIcon1: undefined,
-          weatherIcon1ValueLoadValue: false,
-          IconAlt1: this.weather1,
-          location2: "Issaquah,WA",
-          temp2: undefined,
-          weather2: undefined,
-          weatherIcon2: undefined,
-          weatherIcon2ValueLoadValue: false,
-           IconAlt2: this.weather2,
-          location3: "Bellingham,WA",
-          temp3: undefined,
-          weather3: undefined,
-          weatherIcon3: undefined,
-          weatherIcon3ValueLoadValue: false,
-           IconAlt3: this.weather3,
-          location4: "Paradise,WA",
-          temp4: undefined,
-          weather4: undefined,
-          weatherIcon4: undefined,
-          weatherIcon4ValueLoadValue: false,
-          IconAlt4: this.weather4
+          weatherDataHolder: [
+        {
+        location: "Seattle, WA",
+        tempRecieved:"",
+        weatherData:"",
+        weatherIcon:"",
+        weatherIconLoadValue: false
+        },
+        {
+        location: "Issaquah, WA",
+        tempRecieved:"",
+        weatherData:"",
+        weatherIcon:"",
+        weatherIconLoadValue: false    
+        }
+        ]
+      }
          
           
-  }
   },
   methods: {
-    getData(){
+     getDataSeattle(){
       fetch('https://api.weatherbit.io/v2.0/current?&city=Seattle,WA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
       .then(response => {
         console.log(response)
+        console.log("test succesful")
         return response.json()
       })
       .then((json) => {
         console.log(json)
-        this.temp1 = json.data[0].temp
-        this.weather1 = json.data[0].weather.description
-        this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        this.weatherIcon1ValueLoadValue = true
+        // this.tempTest = json.data[0].temp
+        this.weatherDataHolder[0].tempRecieved = json.data[0].temp
+        this.weatherDataHolder[0].weatherData = json.data[0].weather.description
+        this.weatherDataHolder[0].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
+        this.weatherIconLoadValue = true
+        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
+        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
         alert('Error loading data for Seattle,WA! Please check your internet connection and relaod the page')
     })
     },
-     getData2(){
+      getDataIssaquah(){
       fetch('https://api.weatherbit.io/v2.0/current?&city=Issaquah,WA&key=d7b112b090fa4c8baac9453adf0ac2d2&include=minutely')
       .then(response => {
         console.log(response)
+        console.log("test succesful")
         return response.json()
       })
       .then((json) => {
         console.log(json)
-        this.temp2 = json.data[0].temp
-        this.weather2 = json.data[0].weather.description
-          this.weatherIcon2 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        this.weatherIcon2ValueLoadValue = true
-       
+        // this.tempTest = json.data[0].temp
+        this.weatherDataHolder[1].tempRecieved = json.data[0].temp
+        this.weatherDataHolder[1].weatherData = json.data[0].weather.description
+        this.weatherDataHolder[1].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
+        this.weatherIconLoadValue = true
+        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
+        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
-        alert('Error loading data for Issaquah, WA! Please check your internet connection and relaod the page')
+        alert('Error loading data for Issaquah,WA! Please check your internet connection and relaod the page')
     })
     },
       getData3(){
@@ -185,8 +184,8 @@ export default {
     },
       
     mounted: function() {
-      this.getData()
-      this.getData2()
+      this.getDataSeattle()
+      this.getData2Issaquah()
       this.getData3()
       this.getData4()
     }
