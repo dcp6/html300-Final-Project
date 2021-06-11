@@ -9,15 +9,17 @@
 </div> <!--End main header welcome container-->
 
 <main class="primary-wrapper__main">
+<!--<WeatherTile
+:dataCounter="0"/>-->
 <div class="primary-wrapper__main__card-data-holder">
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{location1}} </h3>
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp1*(9/5)+32)).toFixed(1)}} &#8457;. </p>
-<p class="primary-wrapper__main__card-data-holder__weather-line">{{weather1}}</p>
-<template v-if="weatherIcon1ValueLoadValue">
-<img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon1" v-bind:alt="weather1">
+ <p class="primary-wrapper__main__card-data-holder__weather-line">{{weather1}}</p>
+ <template v-if="weatherIcon1ValueLoadValue">
+ <img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon1" v-bind:alt="weather1">
 
-</template>
-</div>
+ </template>
+ </div>
 <div class="primary-wrapper__main__card-data-holder">
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{location2}} </h3>
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp2*(9/5)+32)).toFixed(1)}} &#8457;. </p>
@@ -75,11 +77,13 @@
 
 import HeaderAndNav from '@/components/HeaderAndNav.vue'
 import Footer from '@/components/Footer.vue'
+import WeatherTile from '@/components/WeatherTile.vue'
 export default {
   name: 'Home',
   components: {
     HeaderAndNav,
-    Footer
+    Footer,
+    WeatherTile
   },
   data () {
       return { 
