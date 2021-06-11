@@ -9,17 +9,15 @@
 </div> <!--End main header welcome container-->
 
 <main class="primary-wrapper__main">
-<!--<WeatherTile
-:dataCounter="0"/>-->
 <div class="primary-wrapper__main__card-data-holder">
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{location1}} </h3>
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp1*(9/5)+32)).toFixed(1)}} &#8457;. </p>
- <p class="primary-wrapper__main__card-data-holder__weather-line">{{weather1}}</p>
- <template v-if="weatherIcon1ValueLoadValue">
- <img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon1" v-bind:alt="weather1">
+<p class="primary-wrapper__main__card-data-holder__weather-line">{{weather1}}</p>
+<template v-if="weatherIcon1ValueLoadValue">
+<img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon1" v-bind:alt="weather1">
 
- </template>
- </div>
+</template>
+</div>
 <div class="primary-wrapper__main__card-data-holder">
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{location2}} </h3>
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp2*(9/5)+32)).toFixed(1)}} &#8457;. </p>
@@ -74,16 +72,13 @@
 
 <script>
 // @ is an alias to /src 
-
 import HeaderAndNav from '@/components/HeaderAndNav.vue'
 import Footer from '@/components/Footer.vue'
-import WeatherTile from '@/components/WeatherTile.vue'
 export default {
   name: 'Home',
   components: {
     HeaderAndNav,
-    Footer,
-    WeatherTile
+    Footer
   },
   data () {
       return { 
@@ -114,7 +109,6 @@ export default {
           IconAlt4: this.weather4
          
           
-
   }
   },
   methods: {
@@ -188,7 +182,6 @@ export default {
         alert('Error loading data for Paradise, WA! Please check your internet connection and relaod the page')
     })
       },
-
     },
       
     mounted: function() {
@@ -196,16 +189,10 @@ export default {
       this.getData2()
       this.getData3()
       this.getData4()
-
-
-
-
     }
     }
     
   
-
-
 </script>
 <style scoped lang="scss">
 $max-width-phone: 29.75rem;
@@ -227,7 +214,6 @@ $font-stack: 'Roboto', Arial, sans-serif;
       height:8rem;
     }
   }
-
   }
   
 }
@@ -265,5 +251,4 @@ $font-stack: 'Roboto', Arial, sans-serif;
     }
   }
 }
-
 </style>
