@@ -7,9 +7,14 @@
     <ul class="primary-wrapper__aside__list-holder">
     <li class="primary-wrapper__aside__list-holder__list-items" v-for="gear in gearItemList">{{gear}}</li>
     </ul>
+      <template v-if="parseInt(gearSelector) != 8" >
       <p class="primary-wrapper__aside__img-header">{{productData[gearSelector].itemData[0]}}</p>
-    <img class="primary-wrapper__aside__primary-image" v-bind:src="productData[gearSelector].itemData[1]" v-bind:id="imgIdentification" v-on:click="plusOne">
-    
+  
+    <img  class="primary-wrapper__aside__primary-image" v-bind:src="productData[gearSelector].itemData[1]" v-bind:id="imgIdentification" v-on:click="plusOne">
+    </template>
+    <template v-else>
+    <p class="primary-wrapper__aside__done-message">{{doneMessage}}</p>
+    </template>
     </aside>
     <main class="primary-wrapper__main">
      <div class="primary-wrappper__main__report-holder">
@@ -48,8 +53,9 @@ export default {
   data() {
     return {
       listHeader:"Gear List",  
-      gearSelector:0,
-      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information! Click below to cycle through images."     ],
+      gearSelector: 0,
+      doneMessage: "Thats all the gear! Refresh the page to view them again.",
+      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information!"     ],
             imgIdentification:"aside-img",
             productData: [
             {
@@ -89,14 +95,8 @@ export default {
   },     
             methods: {
               plusOne() {
-                    this.gearSelector += 1;
-
-                    if (this.gearSelector === 8 )
-                    console.log('test')
-                    this.gearSelector = gearSelector - 8
-                    console.log(gearSelector)
-              }//random number generator
-
+                    this.gearSelector += 1
+              }//plusOne number generator
 
           }//method end
   }
@@ -144,6 +144,9 @@ $max-width-phone:29.75rem;
                 padding-bottom:.25rem;
             }
         }
+    &__doneMessage {
+        font-size:1.2rem;
+    }
       &__gear-images {
           display:flex;
           flex-direction:column;
@@ -151,7 +154,7 @@ $max-width-phone:29.75rem;
       }
     }
 #aside-img {
-    height:13rem;
+    height:10rem;
 
 } 
 }
