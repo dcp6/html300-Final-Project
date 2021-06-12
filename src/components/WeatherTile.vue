@@ -2,7 +2,6 @@
 <h3 class="primary-wrapper__main__card-data-holder__location-line">{{weatherDataHolder[weatherDataIndex].location}}</h3>
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((weatherDataHolder[weatherDataIndex].tempRecieved*(9/5)+32)).toFixed(1)}} &#8457;. </p>
 <p class="primary-wrapper__main__card-data-holder__weather-line">{{weatherDataHolder[weatherDataIndex].weatherData}}</p>
-<!--<p>{{weatherDataHolder[0].tempRecieved}}</p>-->
 <template v-if= "weatherIconLoadValue">
 <img :src="weatherDataHolder[weatherDataIndex].weatherIcon">
 </template>
@@ -13,12 +12,6 @@
 
 
 </template>
-
-<!--h3 class="primary-wrapper__main__card-data-holder__location-line">{{location2}} </h3>
-<p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((temp2*(9/5)+32)).toFixed(1)}} &#8457;. </p>
-<p class="primary-wrapper__main__card-data-holder__weather-line">{{weather2}}</p>
-<template v-if="weatherIcon2ValueLoadValue">
-<img class="primary-wrapper__main__card-data-holder__weather-img" v-bind:src = "weatherIcon2" v-bind:alt="weather2">-->
 
 
 
@@ -80,13 +73,11 @@ export default {
       })
       .then((json) => {
         console.log(json)
-        // this.tempTest = json.data[0].temp
+     
         this.weatherDataHolder[0].tempRecieved = json.data[0].temp
         this.weatherDataHolder[0].weatherData = json.data[0].weather.description
         this.weatherDataHolder[0].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
-        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
         alert('Error loading data for Seattle,WA! Please check your internet connection and relaod the page')
@@ -101,13 +92,10 @@ export default {
       })
       .then((json) => {
         console.log(json)
-        // this.tempTest = json.data[0].temp
         this.weatherDataHolder[1].tempRecieved = json.data[0].temp
         this.weatherDataHolder[1].weatherData = json.data[0].weather.description
         this.weatherDataHolder[1].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
-        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
         alert('Error loading data for Issaquah,WA2! Please check your internet connection and relaod the page')
@@ -122,13 +110,10 @@ export default {
       })
       .then((json) => {
         console.log(json)
-        // this.tempTest = json.data[0].temp
         this.weatherDataHolder[2].tempRecieved = json.data[0].temp
         this.weatherDataHolder[2].weatherData = json.data[0].weather.description
         this.weatherDataHolder[2].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
-        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
         alert('Error loading data for Issaquah,WA! Please check your internet connection and relaod the page')
@@ -143,13 +128,10 @@ export default {
       })
       .then((json) => {
         console.log(json)
-        // this.tempTest = json.data[0].temp
         this.weatherDataHolder[3].tempRecieved = json.data[0].temp
         this.weatherDataHolder[3].weatherData = json.data[0].weather.description
         this.weatherDataHolder[3].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
-        // this.weatherIcon1 = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        // this.weatherIcon1ValueLoadValue = true
       })
       .catch((reason) => {
         alert('Error loading data for Issaquah,WA! Please check your internet connection and relaod the page')

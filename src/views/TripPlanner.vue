@@ -7,13 +7,17 @@
 {{primaryHeader}}
 </h2>
 </div> <!--End main header welcome container-->
-
+<!--<select v-model="selected" class="primary-wrapper__location-selector" name="weather-location" id="weatherLocationSelector">
+<option disable value="">Select your state</option>
+<option>Washington State</option>
+<option>Delaware Area</option>
+</select>
+<p>{{selected}}</p>-->
 <main class="primary-wrapper__main">
 
 <div class="primary-wrapper__main__card-data-holder">
 
 <WeatherTile :weatherDataIndex="0"/>
-
 </div>
 <div class="primary-wrapper__main__card-data-holder">
 <WeatherTile :weatherDataIndex="1"/>
@@ -27,8 +31,8 @@
 <WeatherTile :weatherDataIndex="3"/>
 
 </div>
+
 </main>
-<!--<WeatherTile weatherDataIndex="2"/>-->
  
 </div><!--primary wrapper-->
 
@@ -84,6 +88,10 @@ $font-stack: 'Roboto', Arial, sans-serif;
       height:8rem;
     }
   }
+  }
+  &__location-selector {
+      grid-column:6;
+      grid-row:2;
   }
   
 }
