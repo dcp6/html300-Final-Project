@@ -37,7 +37,18 @@
 </div>
 </template>
 <template v-if="selected === 'Delaware'">
-<p>{{selected}}</p>
+<div class="primary-wrapper__main__card-data-holder">
+<WeatherTile :weatherDataIndex="4"/>
+</div>
+<div class="primary-wrapper__main__card-data-holder">
+<WeatherTile :weatherDataIndex="5"/>
+</div>
+<div class="primary-wrapper__main__card-data-holder">
+<WeatherTile :weatherDataIndex="6"/>
+</div>
+<div class="primary-wrapper__main__card-data-holder">
+<WeatherTile :weatherDataIndex="7"/>
+</div>
 </template>
 </main>
  

@@ -1,5 +1,6 @@
 <template>
-<h3 class="primary-wrapper__main__card-data-holder__location-line">{{weatherDataHolder[weatherDataIndex].location}}</h3>
+<h3 class="primary-wrapper__main__card-data-holder__location-line">{{locationLinks[weatherDataIndex].name}}</h3>
+
 <p class="primary-wrapper__main__card-data-holder__temperature-line">Temperature: {{((weatherDataHolder[weatherDataIndex].tempRecieved*(9/5)+32)).toFixed(1)}} &#8457;. </p>
 <p class="primary-wrapper__main__card-data-holder__weather-line">{{weatherDataHolder[weatherDataIndex].weatherData}}</p>
 <template v-if= "weatherIconLoadValue">
@@ -29,66 +30,87 @@ export default {
       return {
         text:"blank",
         weatherDataValue: 1,
+        locationLinksCounter: 0,
         tempTest: undefined,
         locationLinks: [
             {
-            link :"https://api.weatherbit.io/v2.0/current?&city=Seattle,WA&key=d7b112b090fa4c8baac9453adf0ac2d2",
-            index:0
+            name: "Seattle",
+            link: "https://api.weatherbit.io/v2.0/current?&city=Seattle,WA&key=d7b112b090fa4c8baac9453adf0ac2d2",
+            },
+            {
+            name: "Issaquah",
+            link: "https://api.weatherbit.io/v2.0/current?&city=Issaquah,WA&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Bellingham",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=48.769&lon=-122.485&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Paradise",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=46.78&lon=-121.73&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Wilmington, DE",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=39.74&lon=-75.54&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Philadelphia, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&city=Philadelphia,PA&key=d7b112b090fa4c8baac9453adf0ac2d2"  
+            },
+            {
+            name: "Pocanos, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=41.07&lon=-75.44&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Pequa, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=39.89&lon=-76.37&key=d7b112b090fa4c8baac9453adf0ac2d2"
+              
             }
-
         ],
         weatherDataHolder: [
         {
-        location: "Seattle, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
         {
-        location: "Issaquah, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false    
         },
         {
-        location: "Bellingham, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
         {
-        location: "Paradise, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
         {
-        location: "Locaiton 5, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
          {
-        location: "Location 6, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
         {
-        location: "Location 7, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
         weatherIconLoadValue: false
         },
         {
-        location: "Location 8, WA",
         tempRecieved:"",
         weatherData:"",
         weatherIcon:"",
@@ -98,8 +120,8 @@ export default {
       }
   },
   methods: {
-      getDataSeattle(){
-      fetch('https://api.weatherbit.io/v2.0/current?&city=Seattle,WA&key=d7b112b090fa4c8baac9453adf0ac2d2')
+      getData(){
+      fetch(this.locationLinks[this.weatherDataIndex].link)
       .then(response => {
         console.log(response)
         console.log("test succesful")
@@ -107,68 +129,15 @@ export default {
       })
       .then((json) => {
         console.log(json)
-     
-        this.weatherDataHolder[0].tempRecieved = json.data[0].temp
-        this.weatherDataHolder[0].weatherData = json.data[0].weather.description
-        this.weatherDataHolder[0].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
+     //weather data holder object array: po
+        this.weatherDataHolder[this.weatherDataIndex].tempRecieved = json.data[0].temp
+        // this.weatherDataHolder[this.locationLinks[weatherDataIndex]].tempRecieved = json.data[0].temp
+        this.weatherDataHolder[this.weatherDataIndex].weatherData = json.data[0].weather.description
+        this.weatherDataHolder[this.weatherDataIndex].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
       })
       .catch((reason) => {
-        alert('Error loading data for Seattle, WA! Please check your internet connection and relaod the page')
-    })
-    },
-       getDataIssaquah(){
-      fetch('https://api.weatherbit.io/v2.0/current?&city=Issaquah,WA&key=d7b112b090fa4c8baac9453adf0ac2d2')
-      .then(response => {
-        console.log(response)
-        console.log("test succesful")
-        return response.json()
-      })
-      .then((json) => {
-        console.log(json)
-        this.weatherDataHolder[1].tempRecieved = json.data[0].temp
-        this.weatherDataHolder[1].weatherData = json.data[0].weather.description
-        this.weatherDataHolder[1].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        this.weatherIconLoadValue = true
-      })
-      .catch((reason) => {
-        alert('Error loading data for Issaquah, WA! Please check your internet connection and relaod the page')
-    })
-    },
-       getDataBellingham(){
-       fetch('https://api.weatherbit.io/v2.0/current?&lat=48.769&lon=-122.485&key=d7b112b090fa4c8baac9453adf0ac2d2')
-      .then(response => {
-        console.log(response)
-        console.log("test succesful")
-        return response.json()
-                        })
-      .then((json) => {
-        console.log(json)
-        this.weatherDataHolder[2].tempRecieved = json.data[0].temp
-        this.weatherDataHolder[2].weatherData = json.data[0].weather.description
-        this.weatherDataHolder[2].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        this.weatherIconLoadValue = true
-                      })
-      .catch((reason) => {
-        alert('Error loading data for Bellingham! Please check your internet connection and relaod the page')
-                     })
-    },
-     getDataParadise(){
-     fetch('https://api.weatherbit.io/v2.0/current?&lat=46.78&lon=-121.73&key=d7b112b090fa4c8baac9453adf0ac2d2')
-      .then(response => {
-        console.log(response)
-        console.log("test succesful")
-        return response.json()
-      })
-      .then((json) => {
-        console.log(json)
-        this.weatherDataHolder[3].tempRecieved = json.data[0].temp
-        this.weatherDataHolder[3].weatherData = json.data[0].weather.description
-        this.weatherDataHolder[3].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
-        this.weatherIconLoadValue = true
-      })
-      .catch((reason) => {
-        alert('Error loading data for Paradise! Please check your internet connection and relaod the page')
+        console.log('error')
     })
     }
    
@@ -176,10 +145,7 @@ export default {
 
     },
     mounted: function (){
-        this.getDataSeattle()
-        this.getDataIssaquah()
-        this.getDataBellingham()
-        this.getDataParadise()
+        this.getData()
     }
     
 }
