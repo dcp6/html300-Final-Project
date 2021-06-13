@@ -48,6 +48,23 @@ export default {
             {
             name: "Paradise",
             link: "https://api.weatherbit.io/v2.0/current?&lat=46.78&lon=-121.73&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Wilmington, DE",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=39.74&lon=-75.54&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Philadelphia, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&city=Philadelphia,PA&key=d7b112b090fa4c8baac9453adf0ac2d2"  
+            },
+            {
+            name: "Pocanos, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=41.07&lon=-75.44&key=d7b112b090fa4c8baac9453adf0ac2d2"
+            },
+            {
+            name: "Pequa, PA",
+            link: "https://api.weatherbit.io/v2.0/current?&lat=39.89&lon=-76.37&key=d7b112b090fa4c8baac9453adf0ac2d2"
+              
             }
         ],
         weatherDataHolder: [
