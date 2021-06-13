@@ -6,15 +6,19 @@
 <h2 class="primary-wrapper__main-header-welcome-container__welcome-line">
 {{primaryHeader}}
 </h2>
+
 </div> <!--End main header welcome container-->
-<!--<select v-model="selected" class="primary-wrapper__location-selector" name="weather-location" id="weatherLocationSelector">
-<option disable value="">Select your state</option>
-<option>Washington State</option>
-<option>Delaware Area</option>
+
+<select v-model="selected" class="primary-wrapper__location-selector" name="weather-location" id="weatherLocationSelector">
+<option disabled value="">Select your state</option>
+<option>Washington</option>
+<option>Delaware</option>
 </select>
-<p>{{selected}}</p>-->
+
 <main class="primary-wrapper__main">
 
+
+<template v-if="selected ==='Washington'">
 <div class="primary-wrapper__main__card-data-holder">
 
 <WeatherTile :weatherDataIndex="0"/>
@@ -31,7 +35,10 @@
 <WeatherTile :weatherDataIndex="3"/>
 
 </div>
-
+</template>
+<template v-if="selected === 'Delaware'">
+<p>{{selected}}</p>
+</template>
 </main>
  
 </div><!--primary wrapper-->
@@ -64,6 +71,14 @@ export default {
     Footer,
     WeatherTile
   },
+    data (){
+      return {
+        selected:"",
+        primaryHeader: "See below to plan your trip!"
+      }
+    }
+     
+    
     }
     
   
@@ -76,7 +91,7 @@ $font-stack: 'Roboto', Arial, sans-serif;
   font-family:$font-stack;
   &__main {
       grid-column:3/11;
-      grid-row:3/10;
+      grid-row:4/10;
       display:flex;
       flex-direction:row;
     &__card-data-holder {
@@ -91,7 +106,10 @@ $font-stack: 'Roboto', Arial, sans-serif;
   }
   &__location-selector {
       grid-column:6;
-      grid-row:2;
+      grid-row:3;
+      height:4rem;
+      width:9rem;
+      font-size:1.2rem;
   }
   
 }
