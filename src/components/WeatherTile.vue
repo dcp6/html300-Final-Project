@@ -31,6 +31,14 @@ export default {
         text:"blank",
         weatherDataValue: 1,
         locationLinksCounter: 0,
+        locationLinksDataHolderTest: [],
+        locationLinksObjectTest: 
+        {
+        tempRecieved:"",
+        weatherData:"",
+        weatherIcon:"",
+        weatherIconLoadValue: false  
+        },
         tempTest: undefined,
         locationLinks: [
             {
@@ -123,12 +131,10 @@ export default {
       getData(){
       fetch(this.locationLinks[this.weatherDataIndex].link)
       .then(response => {
-        console.log(response)
-        console.log("test succesful")
         return response.json()
       })
       .then((json) => {
-        console.log(json)
+
      //weather data holder object array: po
         this.weatherDataHolder[this.weatherDataIndex].tempRecieved = json.data[0].temp
         // this.weatherDataHolder[this.locationLinks[weatherDataIndex]].tempRecieved = json.data[0].temp
@@ -139,13 +145,23 @@ export default {
       .catch((reason) => {
         console.log('error')
     })
-    }
-   
-    
+    },
+      arrayGenerator() {
+      for (let i = 0; i < 5; i ++){
+      this.locationLinksDataHolderTest.push(this.locationLinksObjectTest)
+      }
+      console.log(this.locationLinksDataHolderTest)
 
+    }
+ 
+   
     },
     mounted: function (){
+        console.log(this.locationLinksObjectTest)
+        this.arrayGenerator()
+        console.log(this.locationLinksDataHolderTest)
         this.getData()
+    
     }
     
 }

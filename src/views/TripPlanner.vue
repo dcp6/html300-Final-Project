@@ -12,7 +12,7 @@
 <select v-model="selected" class="primary-wrapper__location-selector" name="weather-location" id="weatherLocationSelector">
 <option disabled value="">Select your state</option>
 <option>Washington</option>
-<option>Delaware</option>
+<option>DE/PA</option>
 </select>
 
 <main class="primary-wrapper__main">
@@ -36,7 +36,7 @@
 
 </div>
 </template>
-<template v-if="selected === 'Delaware'">
+<template v-if="selected === 'DE/PA'">
 <div class="primary-wrapper__main__card-data-holder">
 <WeatherTile :weatherDataIndex="4"/>
 </div>
