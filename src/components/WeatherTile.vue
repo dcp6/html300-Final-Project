@@ -134,7 +134,6 @@ export default {
         return response.json()
       })
       .then((json) => {
-
      //weather data holder object array: po
         this.weatherDataHolder[this.weatherDataIndex].tempRecieved = json.data[0].temp
         // this.weatherDataHolder[this.locationLinks[weatherDataIndex]].tempRecieved = json.data[0].temp
@@ -147,11 +146,10 @@ export default {
     })
     },
       arrayGenerator() {
-      for (let i = 0; i < 5; i ++){
+      for (let i = 0; i < this.locationLinks.length; i ++){
       this.locationLinksDataHolderTest.push(this.locationLinksObjectTest)
       }
       console.log(this.locationLinksDataHolderTest)
-
     }
  
    
