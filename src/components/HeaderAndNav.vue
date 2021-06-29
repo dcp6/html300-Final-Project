@@ -27,7 +27,15 @@
 </nav>
 </div>
 </template>
+<style lang="scss">
+.primary-header {
+  &__main-headline {
+    font-weight: 400;
+  }
+}
 
+
+</style>
 <script>
 export default {
   name: 'HeaderAndNav',

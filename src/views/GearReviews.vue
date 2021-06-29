@@ -43,7 +43,113 @@
 <Footer msg="End"/>
 </div><!--end trip planner div-->
 </template>
+<style lang="scss">
+@import "@/scss/_variables.scss"; 
+.primary-wrapper {
+     &__aside {
+        display:flex;
+        font-weight:300;
+        flex-direction:column;
+        align-items:center;
+        grid-column:1/4;
+        background-color:white;
+        color:green;
+        border-right: 2px solid black;
+        &__list-holder {
+            &__list-items {
+                list-style-type:none;
+                padding-right:1rem;
+                padding-bottom:.25rem;
+            }
+        }
+        &__doneMessage {
+        font-size:1.2rem;
+    }
+      &__gear-images {
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+      }
+    }
+#aside-img {
+    height:13rem;
 
+} 
+&__main {
+    grid-column:4/12;
+    &__review-holder {
+        &__gear-review-text{
+            font-weight:300;
+        }
+        &__img-holder {
+        &__img {
+            height:20rem;
+            padding-right:6rem;
+            &:last-child {
+                padding-right:0rem;
+            }
+        }
+        }
+    }
+}
+}
+@media (max-width:$max-width-ipad){
+   .primary-wrapper {
+            &__main {
+                grid-column:2/12;
+                &__review-holder {
+
+                
+                &__img-holder {
+                    &__img {
+                        height:16rem;
+                    }
+                }
+            }
+            }
+            &__aside {
+                display:none;
+            }
+        }
+}
+@media (max-width:$max-width-phone){
+.primary-wrapper {
+            &__main { 
+                grid-column:1/12; 
+                &__review-holder {
+                    &__headline {
+                        color:black;
+                    }
+                    &__review-header {
+                        color:black;
+                        padding-left:0rem;
+                        
+                    }
+                    &__gear-review-text {
+                        font-height:130%;
+                    }
+                    &__img-holder {
+                    &__img {
+                        height:25rem;
+                        padding-left:0rem;
+                    }
+                    }
+                    &__review-text {
+                        color:black;
+                        padding-left:0rem;
+                    }
+                        
+                    }
+            }
+            &__aside {
+                display:none;
+            }
+        
+        }
+}
+
+
+</style>
 
 
 
@@ -129,101 +235,3 @@ export default {
 
 
 </script>
-<style scoped lang="scss">
-$max-width-ipad: 48rem;
-$max-width-phone:29.75rem; 
-.primary-wrapper {
-     &__aside {
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        grid-column:1/4;
-        background-color:white;
-        color:green;
-        border-right: 2px solid black;
-        &__list-holder {
-            &__list-items {
-                list-style-type:none;
-                padding-right:1rem;
-                padding-bottom:.25rem;
-            }
-        }
-        &__doneMessage {
-        font-size:1.2rem;
-    }
-      &__gear-images {
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-      }
-    }
-#aside-img {
-    height:13rem;
-
-} 
-&__main {
-    grid-column:4/11;
-    &__review-holder {
-        &__img-holder {
-        &__img {
-            height:20rem;
-            padding-right:1rem;
-        }
-        }
-    }
-}
-}
-@media (max-width:$max-width-ipad){
-   .primary-wrapper {
-            &__main {
-                grid-column:2/12;
-                &__review-holder {
-
-                
-                &__img-holder {
-                    &__img {
-                        height:16rem;
-                    }
-                }
-            }
-            }
-            &__aside {
-                display:none;
-            }
-        }
-}
-@media (max-width:$max-width-phone){
-.primary-wrapper {
-            &__main { 
-                grid-column:1/12; 
-                &__review-holder {
-                    &__headline {
-                        color:black;
-                    }
-                    &__review-header {
-                        color:black;
-                        padding-left:0rem;
-                        
-                    }
-                    &__img-holder {
-                    &__img {
-                        height:25rem;
-                        padding-left:0rem;
-                    }
-                    }
-                    &__review-text {
-                        color:black;
-                        padding-left:0rem;
-                    }
-                        
-                    }
-            }
-            &__aside {
-                display:none;
-            }
-        
-        }
-}
-
-
-</style>

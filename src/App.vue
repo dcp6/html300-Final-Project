@@ -6,20 +6,8 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-$font-stack: 'Roboto', Arial, sans-serif;
-$primary-font-color:black;
-$primary-background-color:white;
-$menu-item-color: white;
-$hamburger-menu-color: black;
-$hamburger-menu-color-change:black;
-$hamburger-menu-link-color:green;;
-$menu-background-color:black;
-$toggle-top-location:1rem;
-$toggle-left-location:0.5rem;
-$max-width-ipad-pro:64rem;
-$max-width-ipad:48rem;
-$max-width-phone:29.75rem; 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import "./scss/_variables.scss";
 
 
 $footer-background-color:black;
@@ -51,7 +39,7 @@ body {
         grid-row:1/8;
         //positions the image section
         &__img {
-            height:25rem;
+            height:17.5rem;
             padding:2rem; 
          &:last-child() {
              padding-right:0;
@@ -80,14 +68,17 @@ body {
         color:$primary-font-color;
         grid-column:2/12;
         grid-row:9/12;
+        font-weight:300;
     &__intro-para {
         color:$primary-font-color;
         font-size:1.25rem;
+        font-weight:300;
     }
     }
     &__blog-entry-holder {
         grid-column:2/12;
         grid-row:8;
+        font-weight:300;
         
     &__blog-entry {
             color:$primary-font-color;
@@ -151,8 +142,8 @@ body {
     &__menu-item-holder {
         position:absolute;
         transition: 0.5s;
-       margin:(-1rem+$toggle-top-location) 0 0 -.5rem;
-       padding:1rem 0rem 1rem 1rem;
+       margin:-6rem 0 0 -.5rem;
+       padding:1rem 0rem 1rem 0rem;
         transform: translate(-15rem, 0rem);
         background:$menu-background-color;
         transform: 1s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -217,6 +208,19 @@ body {
 }
 @media (max-width: $max-width-ipad)
 {
+    .nav-bar {
+        &__main-holder {
+            &__check-box {
+                left:1rem;
+            }
+            &__hamburger {
+                left:1rem;
+            }
+            &__menu-item-holder {
+                margin:0 0 0 -.5rem;
+            }
+        }
+    }
         .primary-wrapper {
             &__main-header-img-holder {
                 &__img {
@@ -234,6 +238,13 @@ body {
     }
 .nav-bar {
   &__main-holder {
+      &__check-box {
+          left:0.75rem;
+      }
+      &__hamburger {
+          left:0.75rem;
+      }
+
     &__menu-item-holder {
       margin:($toggle-top-location) 0 0 -.5rem;
     }
@@ -316,4 +327,6 @@ body {
   
     }
 }
+
+//To do: Change location on gear reviews page. Lengthen menu. Fix pictures of main page on mobile.
 </style>
