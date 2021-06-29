@@ -135,8 +135,8 @@ export default {
       })
       .then((json) => {
      //weather data holder object array: po
+     //uses the prop to refer to the index value of the array
         this.weatherDataHolder[this.weatherDataIndex].tempRecieved = json.data[0].temp
-        // this.weatherDataHolder[this.locationLinks[weatherDataIndex]].tempRecieved = json.data[0].temp
         this.weatherDataHolder[this.weatherDataIndex].weatherData = json.data[0].weather.description
         this.weatherDataHolder[this.weatherDataIndex].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true

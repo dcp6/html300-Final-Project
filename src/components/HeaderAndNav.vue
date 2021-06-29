@@ -39,7 +39,7 @@ export default {
 <style scoped lang="scss">
 h1 {
     text-align:center;
-    font-weight:bolder;
+    font-weight:500;
 }
 </style>
 
