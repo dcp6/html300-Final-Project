@@ -6,6 +6,7 @@
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 $font-stack: 'Roboto', Arial, sans-serif;
 $primary-font-color:black;
 $primary-background-color:white;

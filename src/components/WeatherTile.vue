@@ -142,7 +142,7 @@ export default {
         this.weatherIconLoadValue = true
       })
       .catch((reason) => {
-        console.log('error')
+        throw ('The data failed to load.')
     })
     },
       arrayGenerator() {
@@ -154,10 +154,10 @@ export default {
  
    
     },
-    mounted: function (){
-        console.log(this.locationLinksObjectTest)
+    beforeMount: function () {
         this.arrayGenerator()
-        console.log(this.locationLinksDataHolderTest)
+    },
+    mounted: function (){
         this.getData()
     
     }
