@@ -1,3 +1,4 @@
+ 
 <template>
   <div class="tripreports">
     <HeaderAndNav msg="Welcome!"/>
@@ -38,8 +39,114 @@
     <Footer msg="End"/>
   </div>
 </template>
+<style scoped lang="scss">
+@import "@/scss/_variables.scss"; 
+.primary-wrapper {
+  &__main {
+        grid-column:5/12;
+        padding-right:1fr;
+        background-color:white;
+        display:flex;
+        align-items:center;
+        &__report-holder {
+            &__headline {
+                display:flex;
+                justify-content:center;
+                color:black;
+                        }
+            &__report-text {
+                font-weight:300;
+                line-height:130%;
+            }
+            &__img-holder {
+                display:flex;
+               align-items:center;
+            &__hiking-img {
+                 width:100%;
+        }
+        }
+                         }
+        
+  }
+     &__aside {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        grid-column:2/5;
+        background-color:white;
+        color:green;
+        &__list-holder {
+            &__list-items {
+                list-style-type:none;
+                padding-right:1rem;
+                padding-bottom:.25rem;
+            }
+        }
+    &__doneMessage {
+        font-size:1.2rem;
+    }
+      &__gear-images {
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+      }
+    }
+#aside-img {
+    height:10rem;
 
+} 
+}
+@media (max-width:$max-width-ipad){
+   .primary-wrapper {
+            &__main {
+                grid-column:2/12;
+                &__report-holder {
+                    &__img-holder {
+                        &__hiking-img {
+                            width:100%;
+                        }
+                    }
+                }
+            }
+            &__aside {
+                display:none;
+            }
+        }
+}
+@media (max-width:$max-width-phone){
+.primary-wrapper {
+            &__main { 
+                grid-column:1/13; 
+                &__report-holder {
+                    &__headline {
+                        color:black;
+                    }
+                    &__date-line {
+                        color:black;
+                        padding-left:0rem;
+                        
+                    }
+                    &__img-holder {
+                    &__hiking-img {
+                        padding-left:0rem;
+                    }
+                    }
+                    &__report-text {
+                        color:black;
+                        padding-left:0rem;
+                    }
+                        
+                    }
+            }
+            &__aside {
+                display:none;
+            }
+        
+        }
+}
+</style>
 <script>
+
 // @ is an alias to /src
 
 import HeaderAndNav from '@/components/HeaderAndNav.vue'
@@ -103,108 +210,3 @@ export default {
 
 
 </script>
-<style scoped lang="scss">
-$max-width-ipad: 48rem;
-$max-width-phone:29.75rem; 
-.primary-wrapper {
-  &__main {
-        grid-column:4/11;
-        padding-right:1fr;
-        background-color:white;
-        display:flex;
-        align-items:center;
-        &__report-holder {
-            &__headline {
-                display:flex;
-                justify-content:center;
-                color:black;
-                        }
-            &__img-holder {
-                display:flex;
-               align-items:center;
-            &__hiking-img {
-                 width:100%;
-        }
-        }
-                         }
-        
-  }
-     &__aside {
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        grid-column:1/4;
-        background-color:white;
-        color:green;
-        border-right: 2px solid black;
-        &__list-holder {
-            &__list-items {
-                list-style-type:none;
-                padding-right:1rem;
-                padding-bottom:.25rem;
-            }
-        }
-    &__doneMessage {
-        font-size:1.2rem;
-    }
-      &__gear-images {
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-      }
-    }
-#aside-img {
-    height:10rem;
-
-} 
-}
-@media (max-width:$max-width-ipad){
-   .primary-wrapper {
-            &__main {
-                grid-column:2/12;
-                &__report-holder {
-                    &__img-holder {
-                        &__hiking-img {
-                            width:38rem;
-                        }
-                    }
-                }
-            }
-            &__aside {
-                display:none;
-            }
-        }
-}
-@media (max-width:$max-width-phone){
-.primary-wrapper {
-            &__main { 
-                grid-column:2/11; 
-                &__report-holder {
-                    &__headline {
-                        color:black;
-                    }
-                    &__date-line {
-                        color:black;
-                        padding-left:0rem;
-                        
-                    }
-                    &__img-holder {
-                    &__hiking-img {
-                        width:20rem;
-                        padding-left:0rem;
-                    }
-                    }
-                    &__report-text {
-                        color:black;
-                        padding-left:0rem;
-                    }
-                        
-                    }
-            }
-            &__aside {
-                display:none;
-            }
-        
-        }
-}
-</style>

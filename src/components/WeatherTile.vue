@@ -31,6 +31,14 @@ export default {
         text:"blank",
         weatherDataValue: 1,
         locationLinksCounter: 0,
+        locationLinksDataHolderTest: [],
+        locationLinksObjectTest: 
+        {
+        tempRecieved:"",
+        weatherData:"",
+        weatherIcon:"",
+        weatherIconLoadValue: false  
+        },
         tempTest: undefined,
         locationLinks: [
             {
@@ -123,29 +131,35 @@ export default {
       getData(){
       fetch(this.locationLinks[this.weatherDataIndex].link)
       .then(response => {
-        console.log(response)
-        console.log("test succesful")
         return response.json()
       })
       .then((json) => {
-        console.log(json)
      //weather data holder object array: po
+     //uses the prop to refer to the index value of the array
         this.weatherDataHolder[this.weatherDataIndex].tempRecieved = json.data[0].temp
-        // this.weatherDataHolder[this.locationLinks[weatherDataIndex]].tempRecieved = json.data[0].temp
         this.weatherDataHolder[this.weatherDataIndex].weatherData = json.data[0].weather.description
         this.weatherDataHolder[this.weatherDataIndex].weatherIcon = require("@/assets/icons/" + json.data[0].weather.icon + ".png")
         this.weatherIconLoadValue = true
       })
       .catch((reason) => {
-        console.log('error')
+        throw ('The data failed to load.')
     })
+    },
+      arrayGenerator() {
+      for (let i = 0; i < this.locationLinks.length; i ++){
+      this.locationLinksDataHolderTest.push(this.locationLinksObjectTest)
+      }
+      console.log(this.locationLinksDataHolderTest)
     }
+ 
    
-    
-
+    },
+    beforeMount: function () {
+        this.arrayGenerator()
     },
     mounted: function (){
         this.getData()
+    
     }
     
 }
