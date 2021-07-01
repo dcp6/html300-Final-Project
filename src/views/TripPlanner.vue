@@ -119,7 +119,7 @@ $font-stack: 'Roboto', Arial, sans-serif;
       grid-column:6;
       grid-row:3;
       height:4rem;
-      width:9rem;
+      width:11rem;
       font-size:1.2rem;
   }
   

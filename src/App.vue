@@ -2,16 +2,12 @@
   <div id="app">
   </div>
   <router-view/>
-  <router-link to="/tripreports"></router-link>
+ 
 </template>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 @import "./scss/_variables.scss";
-
-
-$footer-background-color:black;
-$footer-font-color:white;
 html {
     height:100%;
     max-width:100%;
@@ -22,7 +18,6 @@ body {
     max-width:100%;
     overflow-x:hidden;
     background-color:$primary-background-color;
-    height: 100%;
 }
 .app {
 }

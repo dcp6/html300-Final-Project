@@ -1,5 +1,4 @@
-
-
+ 
 <template>
   <div class="tripreports">
     <HeaderAndNav msg="Welcome!"/>
@@ -41,8 +40,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-$max-width-ipad: 48rem;
-$max-width-phone:29.75rem; 
+@import "@/scss/_variables.scss"; 
 .primary-wrapper {
   &__main {
         grid-column:5/12;

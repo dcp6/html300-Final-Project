@@ -28,6 +28,7 @@
 </div>
 </template>
 <style lang="scss">
+@import "@/scss/_variables.scss"; 
 .primary-header {
   h1 {
     text-align:center;
@@ -36,6 +37,13 @@
     font-weight: 400;
   }
 }
+@media (max-width:$max-width-phone){
+  .primary-header {
+  h1 {
+    padding-top:.63rem;
+  }
+  }
+} 
 
 
 </style>
@@ -59,12 +67,15 @@ export default {
     },
     methods: {
       onScroll() {
-        const currenScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-        if (currenScrollPosition < 0) {
+        const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+        if (currentScrollPosition < 0) {
           return
         }
-      this.showNavMenu = currenScrollPosition < this.lastScrollPosition
-      this.lastScrollPosition = currenScrollPosition
+        if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 300) {
+          return
+        }
+      this.showNavMenu = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
       }
     }
   }
