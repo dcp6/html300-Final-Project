@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="tripreports">
     <HeaderAndNav msg="Welcome!"/>
@@ -43,7 +45,7 @@ $max-width-ipad: 48rem;
 $max-width-phone:29.75rem; 
 .primary-wrapper {
   &__main {
-        grid-column:5/11;
+        grid-column:5/12;
         padding-right:1fr;
         background-color:white;
         display:flex;
@@ -75,7 +77,6 @@ $max-width-phone:29.75rem;
         grid-column:2/5;
         background-color:white;
         color:green;
-        border-right: 2px solid black;
         &__list-holder {
             &__list-items {
                 list-style-type:none;
@@ -100,7 +101,7 @@ $max-width-phone:29.75rem;
 @media (max-width:$max-width-ipad){
    .primary-wrapper {
             &__main {
-                grid-column:1/13;
+                grid-column:2/12;
                 &__report-holder {
                     &__img-holder {
                         &__hiking-img {

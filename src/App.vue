@@ -16,13 +16,15 @@ html {
     height:100%;
     max-width:100%;
     overflow-x:hidden;
+    font-family:$font-stack;
 }
 body {
     max-width:100%;
     overflow-x:hidden;
-    font-family:$font-stack;
     background-color:$primary-background-color;
-    height:100%;
+    height: 100%;
+}
+.app {
 }
 .primary-wrapper {
     padding-right:0;
@@ -98,8 +100,8 @@ body {
         position:absolute;
         left:$toggle-left-location;
         z-index:3;
-        height:5.4rem;
-        width:4.6rem;
+        height:4rem;
+        width:4.2rem;
         cursor:pointer; 
         opacity:0;
         //sets the transformation to 0 on the menu when the box is checked
@@ -239,7 +241,7 @@ body {
 .nav-bar {
   &__main-holder {
       &__check-box {
-          left:0.75rem;
+          left:0.57rem;
       }
       &__hamburger {
           left:0.75rem;

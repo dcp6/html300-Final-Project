@@ -4,7 +4,7 @@
   <header class="primary-header">
    <h1 class="primary-header__main-headline">Dan's Hiking and Travel Page</h1>
         </header>
-        <nav class="nav-bar">
+        <nav v-if = "showNavMenu" class="nav-bar" >
     <div class="nav-bar__main-holder">
     <input class="nav-bar__main-holder__check-box" type="checkbox">
       <!--hidden checkbox the size of menu that turns menu on/off-->
@@ -29,6 +29,9 @@
 </template>
 <style lang="scss">
 .primary-header {
+  h1 {
+    text-align:center;
+  }
   &__main-headline {
     font-weight: 400;
   }
@@ -41,13 +44,30 @@ export default {
   name: 'HeaderAndNav',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      showNavMenu:  true,
+      lastScrollPosition:0
+    }
+    },
+    mounted () {
+      window.addEventListener('scroll', this.onScroll)
+    },
+    beforeDestroy () {
+      window.removeEventListener('scroll', this.onScroll)
+    },
+    methods: {
+      onScroll() {
+        const currenScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+        if (currenScrollPosition < 0) {
+          return
+        }
+      this.showNavMenu = currenScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currenScrollPosition
+      }
+    }
   }
-}
 </script>
-<style scoped lang="scss">
-h1 {
-    text-align:center;
-    font-weight:500;
-}
-</style>
+
 

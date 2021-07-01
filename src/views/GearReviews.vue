@@ -51,7 +51,7 @@
         font-weight:300;
         flex-direction:column;
         align-items:center;
-        grid-column:1/4;
+        grid-column:2/5;
         background-color:white;
         color:green;
         border-right: 2px solid black;
@@ -76,17 +76,17 @@
 
 } 
 &__main {
-    grid-column:4/12;
+    grid-column:5/12;
     &__review-holder {
         &__gear-review-text{
             font-weight:300;
         }
         &__img-holder {
         &__img {
-            height:20rem;
-            padding-right:6rem;
+            width: 29%;
+            padding-right: 6.5%;
             &:last-child {
-                padding-right:0rem;
+                padding-right:0%;
             }
         }
         }
@@ -126,11 +126,12 @@
                         
                     }
                     &__gear-review-text {
-                        font-height:130%;
+                        line-height:130%;
                     }
                     &__img-holder {
                     &__img {
                         height:25rem;
+                        width:100%;
                         padding-left:0rem;
                     }
                     }
