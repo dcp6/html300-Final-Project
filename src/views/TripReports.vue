@@ -20,7 +20,7 @@
     <main class="primary-wrapper__main">
      <div class="primary-wrappper__main__report-holder">
       <h2 class="primary-wrapper__main__report-holder__headline">Trip Reports</h2>
-        <p class="primary-wrapper__main__report-holder__date-line">05/09/2021: May Valley Loop</p>
+        <h4 class="primary-wrapper__main__report-holder__date-line">05/09/2021: May Valley Loop</h4>
         <div class="primary-wrapper__ main__report-holder__img-holder">
         <img class="primary-wrapper__main__report-holder__img-holder__hiking-img" src="@/assets/may-valley.webp">
         </div>
@@ -162,7 +162,7 @@ export default {
       listHeader:"Gear List",  
       gearSelector: 0,
       doneMessage: "Thats all the gear! Refresh the page to view them again.",
-      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information!"     ],
+      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Click below to cycle through pieces of gear."     ],
             imgIdentification:"aside-img",
             productData: [
             {

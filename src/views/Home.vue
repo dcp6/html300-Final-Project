@@ -34,6 +34,68 @@
     <Footer msg="End"/>
   </div>
 </template>
+<style lang="scss">
+@import "@/scss/_variables.scss";
+.primary-wrapper {
+  
+&__main-header-img-holder {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        grid-column:2/12;
+        grid-row:1/8;
+        //positions the image section
+        &__img {
+            height:17.5rem;
+            padding:2rem; 
+         &:last-child() {
+             padding-right:0;
+         }   
+        }
+    }
+    &__main-header-welcome-container{
+
+        grid-column: 2 / 11;
+        grid-row:2;    
+        
+        &__welcome-line{
+            color:$primary-font-color;
+            display:flex;
+            justify-content:center;
+            font-size:2.5rem;
+           
+            }//welcome line end
+            }//main header container end
+  
+    &__intro-para {
+            display:flex;
+            justify-content:center;
+    }
+    &__main-intro-text-holder {
+        color:$primary-font-color;
+        grid-column:2/12;
+        grid-row:9/12;
+        font-weight:300;
+    &__intro-para {
+        color:$primary-font-color;
+        font-size:1.25rem;
+        font-weight:300;
+    }
+    }
+    &__blog-entry-holder {
+        grid-column:2/12;
+        grid-row:8;
+        font-weight:300;
+        
+    &__blog-entry {
+            color:$primary-font-color;
+    }
+    }
+  
+}
+
+</style>
+
 
 <script>
 // @ is an alias to /src

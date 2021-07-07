@@ -1,8 +1,6 @@
 <template>
 <div class="Gear-Reviews">
 <HeaderAndNav msg="Welcome"/>
-<h2 class="primary-wrapper__main-header-welcome-container__welcome-line">
-{{primaryHeader}}</h2>
 <div class="primary-wrapper">
 <div class="primary-wrapper__main-header-welcome-container">
 </div> <!--End main header welcome container-->
@@ -20,7 +18,9 @@
     </template>
     </aside>
     <main class="primary-wrapper__main">
+  
      <div class="primary-wrapper__main__review-holder" v-for="gearData in gearReviewData">
+            <h3 class="primary-wrapper__main__review-holder__headline">{{gearHeader}}</h3>
         <h4 class="primarywrapper__main__review-holder__gear-review-header">{{gearReviewData[0].header}}</h4>
         <p class="primary-wrapper__main__review-holder__gear-review-text">{{gearReviewData[0].text1}}</p>
         <div class="primary-wrapper__main__review-holder__img-holder">
@@ -72,12 +72,17 @@
       }
     }
 #aside-img {
-    height:13rem;
+    height:10rem;
 
 } 
 &__main {
     grid-column:5/12;
     &__review-holder {
+    &__headline {
+        font-size: 1.5rem;
+        text-align:center;
+        
+    }
         &__gear-review-text{
             font-weight:300;
         }
@@ -167,12 +172,11 @@ export default {
   },
   data() {
     return {
-      primaryHeader:"Check out our gear reviews below!",
       listHeader:"Gear List",
-        
+      gearHeader:"Gear Reviews",
       gearSelector:0,
       doneMessage: "Thats all the gear! Refresh the page to view them again.",
-      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information! Click below to cycle through images."     ],
+      gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Click below to cycle through pieces of gear."     ],
             imgIdentification:"aside-img",
             productData: [
             {

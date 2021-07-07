@@ -2,9 +2,9 @@
    <template>
    <div class="headerAndNav">
   <header class="primary-header">
-   <h1 class="primary-header__main-headline">Dan Powell</h1>
+   <h1 class="primary-header__main-headline">Dan Powell's Portofolio Page</h1>
         </header>
-        <nav v-if = "showNavMenu" class="nav-bar" >
+        <nav v-if = "showNavMenu" class="nav-bar-mobile" >
     <div class="nav-bar-mobile__main-holder">
     <input class="nav-bar-mobile__main-holder__check-box" type="checkbox">
       <!--hidden checkbox the size of menu that turns menu on/off-->
@@ -17,11 +17,11 @@
  
 <ul class="nav-bar-mobile__main-holder__menu-item-holder"><!--Menu items for hamburger-->
 <li class="nav-bar-mobile__main-holder__menu-item-holder__nav-options"> <router-link class="nav-bar-mobile__main-holder__menu-item-holder__nav-options__link" to="/">Home</router-link></li>
-
-
+<li class="nav-bar-mobile__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-mobile__main-holder__menu-item-holder__nav-options__link" to="/about">About</router-link></li>
 <li class="nav-bar-mobile__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-mobile__main-holder__menu-item-holder__nav-options__link" to="/tripreports">Trip Reports</router-link></li>
 <li class="nav-bar-mobile__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-mobile__main-holder__menu-item-holder__nav-options__link" to="/gearreviews">Gear Reviews</router-link></li>
 <li class="nav-bar-mobile__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-mobile__main-holder__menu-item-holder__nav-options__link" to="/tripplanner">Trip Planner</router-link></li>
+
 </ul>
 </div>
 </nav>
@@ -29,9 +29,11 @@
   <div class="nav-bar-desktop__main-holder">
 <ul class="nav-bar-desktop__main-holder__menu-item-holder">
 <li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"> <router-link class="nav-bar-desktop__main-holder__menu-item-holder__nav-options__link" to="/">Home</router-link></li>
+<li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-desktop__main-holder__menu-item-holder__nav-options__link" to="/about">About</router-link></li>
 <li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-desktop__main-holder__menu-item-holder__nav-options__link" to="/tripreports">Trip Reports</router-link></li>
 <li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-desktop__main-holder__menu-item-holder__nav-options__link" to="/gearreviews">Gear Reviews</router-link></li>
-<li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar__main-holder__menu-item-holder__nav-options__link" to="/tripplanner">Trip Planner</router-link></li>
+<li class="nav-bar-desktop__main-holder__menu-item-holder__nav-options"><router-link class="nav-bar-desktop__main-holder__menu-item-holder__nav-options__link" to="/tripplanner">Trip Planner</router-link></li>
+
 </ul>
 </div>
 </nav>
@@ -41,21 +43,13 @@
 <style lang="scss">
 @import "@/scss/_variables.scss"; 
 .primary-header {
-  h1 {
-    text-align:center;
-  }
   &__main-headline {
     font-weight: 400;
-    margin-left:-44rem;
+    margin-left:5rem;
   }
 }
 .nav-bar-mobile {
-  &__main-holder {
-     display:none;
-    &__check-box {
-     display:none; 
-    }
-  }
+display:none;
 }
 .nav-bar-desktop {
   position:absolute;
@@ -68,17 +62,43 @@
       flex-flow:row;
       list-style-type:none;
       &__nav-options {
-        flex: 3;
+        padding-right:1rem;
+        &__link {
+          text-decoration:none;
+          color:black;
+        }
       }
     }
   }
 }
+.router-link-exact-active {
+  color:red;
+}
+.current {
+  color:red;
+}
+@media (max-width: $max-width-ipad-pro) {
+    .primary-header {
+      text-align:center;
+    }
+        .primary-wrapper {
+            &__main-header-img-holder {
+                &__img {
+                    &:first-child{
+                        display:none;
+                        //Hides picture that doesnt fit onto screen. normally size would be a design side thing, in the future I will standardize my image sizes or find a more scalable implementation
+                    }
+                }
+            }
+        }
+}
 
 @media (max-width:$max-width-ipad) {
+
 .nav-bar-mobile {
+    display:contents;
     z-index:3;
     &__main-holder {
-       display:contents;
     //A checkbox is used to detect when the menu is selected. This places the check box, defines its dimensions, and sets its z-index on top so it can be clicked and its opacity at 0.
         &__check-box {
         top:$toggle-top-location;
@@ -152,6 +172,9 @@
     }//menu-item-holder end
 }
 }//nav-bar end
+.nav-bar-desktop {
+  display:none;
+}
 }
 @media (max-width:$max-width-phone){
   .primary-header {
@@ -197,7 +220,8 @@ export default {
   data() {
     return {
       showNavMenu:  true,
-      lastScrollPosition:0
+      lastScrollPosition:0,
+      current: 0
     }
     },
     mounted () {
@@ -218,6 +242,7 @@ export default {
       this.showNavMenu = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
       }
+ 
     }
   }
 </script>
