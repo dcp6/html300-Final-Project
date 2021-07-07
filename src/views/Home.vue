@@ -5,7 +5,7 @@
 
 <div class="primary-wrapper__main-header-welcome-container">
 
-  <h2 class="primary-wrapper__main-header-welcome-container__welcome-line">Hello and welcome to my blog!</h2>
+  <h2 class="primary-wrapper__main-header-welcome-container__welcome-line">Hello and welcome to my website!</h2>
   <div class="primary-wrapper__main-header-img-holder" >
      <img class="primary-wrapper__main-header-img-holder__img" alt="A mayan temple" src="../assets/xunatunuch.jpg">
      <img class="primary-wrapper__main-header-img-holder__img" alt="A gothic tower" src="../assets/gothic-tower.jpg">
